@@ -19,6 +19,7 @@ RUN mkdir -p /home/arch/.config && \
   mv /home/arch/.config/nvim/.bashrc /home/arch/.bashrc
 
 # Clone yay and install it
-RUN git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+RUN git clone https://aur.archlinux.org/yay-bin.git && \
+  cd yay-bin && makepkg -si -j$(nproc) --noconfirm
 
 CMD ["/bin/bash"]
