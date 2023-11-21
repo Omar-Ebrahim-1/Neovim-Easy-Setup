@@ -1,0 +1,34 @@
+# To fix history bug
+$include /etc/inputrc
+
+# Colors
+set colored-stats on
+set colored-completion-prefix on
+
+# VI Bash mode
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+# Completion settings
+set show-all-if-ambiguous on
+set completion-ignore-case on
+
+# Command history search
+set editing-mode vi
+$if mode=vi
+set keymap vi-command
+
+# these are for vi-command mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+j: history-search-forward
+k: history-search-backward
+set keymap vi-insert
+# these are for vi-insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+$endif
+
+# Remove Default Keybindings
+"\C-j": ""
