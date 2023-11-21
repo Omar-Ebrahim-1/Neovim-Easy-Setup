@@ -6,7 +6,8 @@ RUN pacman -Syu --noconfirm && \
 RUN mkdir -p /root/.config
 RUN git clone https://github.com/OmarEbrahim1/Neovim_Easy_Setup \
   /root/.config/nvim
-RUN echo "Remember to run :Copilot setup in nvim"
+RUN mv /root/.config/nvim/.inputrc /root/.inputrc
+RUN mv /root/.config/nvim/.bashrc /root/.bashrc
 
 WORKDIR /root
 
