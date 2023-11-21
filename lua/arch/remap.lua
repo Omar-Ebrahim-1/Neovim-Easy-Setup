@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set(
   'n',
   '<leader>pu',
-  [[:TSUpdate all<CR>:Lazy sync<CR>:MasonUpdate<CR>]],
+  [[:TSUpdate all<CR>:Lazy sync<CR>]],
   { noremap = true, silent = true }
 )
 
@@ -39,31 +39,10 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
--- Java Runner
-function JavaRunner()
-  vim.cmd("w %")
-  vim.cmd("!javac %")
-  local filename = vim.fn.expand('%:r')  -- Get the filename without extension
-  local package_name = string.gsub(filename, "/", ".")  -- Replace slashes with dots
-  vim.cmd("!java " .. package_name)
-  vim.fn.input("Press ENTER to continue")
-end
-
 -- Add execute permission
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Code Runner
-vim.keymap.set("n", "<leader>rp", "<cmd>w % | !python3 %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rt", "<cmd>w % | !tsc % && node %:r.js<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rj", "[[<cmd>lua JavaRunner()<cr>]]", { silent = true })
-vim.keymap.set("n", "<leader>rb", "<cmd>w % | !bash %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rl", "<cmd>w % | !lua %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rc", "<cmd>w % | !g++ -Wall -o %:r % && ./%:r<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>rs", "<cmd>w % | !swagger-ui-watcher %<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>rc", "<cmd>w % | !gcc -Wall -o %:r % && ./%:r<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>ra", "<cmd>w % | !as % -o %:r.o && ld %:r.o -o %:r<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rd", "<cmd>w % | !dot -Tpng % -o %:r.png && okular %:r.png<CR>", { silent = true })
-vim.keymap.set("n", "<leader>rm", "<cmd>w % | MarkdownPreview<CR>", { silent = true })
 
 -- Copilot
 vim.api.nvim_set_keymap('i', '<C-,>', 'copilot#Accept("<CR>")', {expr=true, silent=true})

@@ -23,17 +23,12 @@ local plugins = {
   'numToStr/Comment.nvim',
   'kylechui/nvim-surround',
   'folke/which-key.nvim',
-  'lervag/vimtex',
   'norcalli/nvim-colorizer.lua',
   'm4xshen/autoclose.nvim',
   'github/copilot.vim',
   {'Wansmer/treesj', dependencies = 'nvim-treesitter/nvim-treesitter'},
   {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
   "lukas-reineke/indent-blankline.nvim",
-  {
-    'glacambre/firenvim',
-    build = function() vim.fn['firenvim#install'](0) end,
-  },
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
   'nvim-treesitter/playground',
