@@ -3,7 +3,7 @@ FROM archlinux
 # Update and install necessary packages
 RUN pacman -Syu --noconfirm && \
   pacman -S neovim git gcc nodejs npm starship \
-  base-devel sudo --noconfirm
+  sudo --noconfirm
 
 # Create a new user and add it to the sudo group
 RUN useradd -m -G wheel -s /bin/bash arch && \
