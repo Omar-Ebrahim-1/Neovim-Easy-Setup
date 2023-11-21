@@ -1,4 +1,6 @@
 # TODO: Update README
+# Setup
+- `Copilot setup`
 ## Install & Configure Plugins
 1.  Put in ~/.config/nvim/lua/arch/packer.lua
 

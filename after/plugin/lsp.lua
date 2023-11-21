@@ -14,7 +14,6 @@ require("mason").setup({
 
 require("mason-lspconfig").setup {
   ensure_installed = {
-    "efm",
     "lua_ls",
   },
   automatic_installation = true,
@@ -33,6 +32,7 @@ local on_attach = function()
     vim.keymap.set('n', 'grr', vim.lsp.buf.rename, {buffer = 0})
 end
 
+-- Lua
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -53,40 +53,6 @@ lspconfig.lua_ls.setup({
   },
 })
 
--- python
-lspconfig.pyright.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    pyright = {
-      disableOrganizeImports = false,
-      analysis = {
-        useLibraryCodeForTypes = true,
-        autoSearchPaths = true,
-        diagnosticMode = "workspace",
-        autoImportCompletions = true,
-      },
-    },
-  },
-})
-
--- Java
-lspconfig.jdtls.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {
-    "jdtls",
-    "-configuration",
-    "~/.cache/jdtls/config",
-    "-data",
-    "~/.cache/jdtls/workspace",
-  },
-}
--- LaTeX
-lspconfig.texlab.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
 
 vim.diagnostic.disable()
 vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable()<CR>", {silent = true})
