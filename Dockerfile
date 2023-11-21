@@ -7,7 +7,8 @@ RUN pacman -Syu --noconfirm && \
 
 # Create a new user and add it to the sudo group
 RUN useradd -m -G wheel -s /bin/bash arch && \
-  echo "arch ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+  echo "arch ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+  echo 'MAKEFLAGS="-j$(nproc)"' > /etc/makepkg.conf
 
 USER arch
 WORKDIR /home/arch
@@ -19,7 +20,6 @@ RUN mkdir -p /home/arch/.config && \
   mv /home/arch/.config/nvim/.bashrc /home/arch/.bashrc
 
 # Clone yay and install it
-RUN echo 'MAKEFLAGS="-j$(nproc)"' > /etc/makepkg.conf
 RUN git clone https://aur.archlinux.org/yay-bin.git && \
   cd yay-bin && makepkg -si --noconfirm
 
