@@ -1,5 +1,6 @@
 # To fix history bug
 $include /etc/inputrc
+set bell-style none
 
 # Colors
 set colored-stats on
