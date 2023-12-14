@@ -1,9 +1,8 @@
 # TODO: Update README
 # Setup
-- docker build -t arch_neovim .
-- docker run -it arch_neovim
-- nvim in home directory
-- `Copilot setup`
+- run build.sh
+- nvim in docker container home directory
+  - run `Copilot`
 ## Install & Configure Plugins
 1.  Put in ~/.config/nvim/lua/arch/packer.lua
 
