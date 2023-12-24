@@ -14,7 +14,7 @@ WORKDIR /home/arch
 
 # Clone Neovim setup and configure shell
 RUN mkdir -p /home/arch/.config && \
-  git clone https://github.com/OmarEbrahim1/Neovim_Easy_Setup /home/arch/.config/nvim && \
+  git clone https://github.com/OmarEbrahim1/Neovim-Easy-Setup /home/arch/.config/nvim && \
   mv /home/arch/.config/nvim/.inputrc /home/arch/.inputrc && \
   mv /home/arch/.config/nvim/.bashrc /home/arch/.bashrc
 
