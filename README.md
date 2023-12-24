@@ -1,4 +1,3 @@
-# TODO: Update README
 # Setup
 - run build.sh
 - nvim in docker container home directory
